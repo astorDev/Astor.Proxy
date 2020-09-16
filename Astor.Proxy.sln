@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astor.Proxy", "Astor.Proxy\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astor.Proxy.Tests", "Astor.Proxy.Tests\Astor.Proxy.Tests.csproj", "{B52C4717-2116-43C0-AB96-3B3D8F0D4F03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Astor.Proxy.ExampleOldApi", "Astor.Proxy.ExampleOldApi\Astor.Proxy.ExampleOldApi.csproj", "{383C34C6-6C1B-4DCD-B1C7-B125ABCB6A46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{B52C4717-2116-43C0-AB96-3B3D8F0D4F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B52C4717-2116-43C0-AB96-3B3D8F0D4F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B52C4717-2116-43C0-AB96-3B3D8F0D4F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383C34C6-6C1B-4DCD-B1C7-B125ABCB6A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383C34C6-6C1B-4DCD-B1C7-B125ABCB6A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383C34C6-6C1B-4DCD-B1C7-B125ABCB6A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383C34C6-6C1B-4DCD-B1C7-B125ABCB6A46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
