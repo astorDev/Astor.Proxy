@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Astor.Proxy
 {
-    public class ProxyClient
+    public class ProxyClient : IProxyClient
     {
         public const int StreamCopyBufferSize = 81920;
         public HttpClient HttpClient { get; }
