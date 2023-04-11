@@ -1,23 +1,29 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Astor.Proxy.ExampleApi;
+using Astor.Proxy.ExampleApi.Controllers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
-namespace Astor.Proxy.ExampleApi
-{
-    public class Program
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(o => o.TokenValidationParameters = new()
     {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+        ValidAudience = Jwt.Audience,
+        ValidIssuer = Jwt.Issuer,
+        IssuerSigningKey = new SymmetricSecurityKey(Jwt.KeyBytes),
+    });
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
-    }
-}
+builder.Services.AddControllers();
+builder.Services.AddHttpClient<GithubService>(cl =>
+{
+    cl.BaseAddress = new("http://api.github.com");
+});
+
+var app = builder.Build();
+app.MapControllers();
+
+app.Run();
+
+public partial class Program { }
